@@ -1,0 +1,114 @@
+.profile__details__container{
+    display: flex;
+    align-items: flex-start;
+
+
+    .profile__details__left__container,.profile__details__right__container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 150px;
+
+        .user__details__container{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: flex-start;
+    
+           
+            table{
+                width: 80%;
+            }
+            .user__info__stat{
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 10px;
+    
+                .user_stat_key{
+                    color: #AEAEAE;
+                    // margin-right: 6px;
+                    font-size: 18px;
+                    font-weight: 400;
+                    width: 50%;
+                    display: flex;
+                    justify-content: flex-end;
+                }
+                .user_stat_value{
+                    color: #545454;
+                    font-size: 19px;
+                    font-weight: 500;
+                    width: 50%;
+                    display: flex;
+                    justify-content: flex-start;
+                }
+                .separator{
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    color: #AEAEAE;
+                }
+            }
+            .section__end{
+                width: 65%;
+                border-bottom: 1px solid #E1E1E1;
+                
+                margin: 5px 0px;
+                margin-bottom: 10px;
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+    
+            }
+        }
+
+    }
+    
+
+    .profile__details__left__container{
+        width: 37%;
+        border-right: 1px solid #E1E1E1;
+
+        .user__profile__pic{
+            height: 180px;
+            width: 180px;
+            border-radius: 50%;
+        }
+        .user__company{
+            color: #AEAEAE;
+            font-size: 18px;
+            font-weight: 400;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+        .user__name{
+            color: #545454;
+            font-size: 19px;
+            font-weight: 500;
+            margin: 9px 0px 4px 0px;
+        }
+        
+    }
+    .profile__details__right__container{
+        flex: 1 ;
+
+        .user_stat_key{
+            width: 110px !important;
+        }
+        .user__address{
+            color: #AEAEAE;
+            font-size: 18px;
+            font-weight: 400;
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+            margin-bottom: 5px;
+            // margin-left: 45px;
+        }
+        .user__address__location{
+            border: none;
+            border-radius: 25px;
+        }
+    }
+}
