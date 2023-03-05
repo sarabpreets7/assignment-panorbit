@@ -6,16 +6,33 @@ const UserContext = createContext();
 const UserProvider = ({ children }) => {
   
   const [user, setUser] = useState();
+  const [activePage,setPage] = useState("profile");
+  const [userList,setUserList] = useState([])
   
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log('ran');
-    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-    setUser(userInfo);
-    console.log(user);
-    if (!userInfo) navigate("/");
+
+    // if(!user){
+      let userInfo = JSON.parse(localStorage.getItem("userInfo"));
+      if(!userInfo){
+        navigate("/");
+        return;
+      }
+      setUser(userInfo);
+    // }
+  
+    // if(!userList){
+      let usersList = JSON.parse(localStorage.getItem("usersList"));
+      if(!usersList){
+        navigate("/");
+        return;
+      }
+      setUserList(usersList)
+    // }
+    
+    // if (!user || !userList) navigate("/");
     
   }, [navigate]);
 
@@ -24,6 +41,10 @@ const UserProvider = ({ children }) => {
       value={{
         user,
         setUser,
+        activePage,
+        setPage,
+        userList,
+        setUserList
       }}
     >
       {children}

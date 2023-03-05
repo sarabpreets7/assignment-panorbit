@@ -1,10 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "../styles/sidebar.scss";
+import { UserState } from '../context/provider';
+import { useNavigate } from "react-router-dom";
+
+
 
 function Sidebar() {
 
-    const [activeItem,setActiveItem] = useState(0);
+    const navigate = useNavigate();
+    const { activePage,setPage } = UserState();
 
+
+    const setActivePage =(page)=>{
+      setPage(page);
+      navigate(`/${page}`);
+    }
+    useEffect(()=>{
+
+    },[activePage])
 
    
   return (
@@ -12,10 +25,10 @@ function Sidebar() {
 
 
         <div className='sidebar__navigation__menu'>
-            <div onClick={()=>setActiveItem(0)} className={activeItem == 0?'navigation__item__active':'navigation__item'}>Profile</div>
-            <div onClick={()=>setActiveItem(1)} className={activeItem == 1?'navigation__item__active':'navigation__item'}>Posts</div>
-            <div onClick={()=>setActiveItem(2)} className={activeItem == 2?'navigation__item__active':'navigation__item'}>Gallery</div>
-            <div onClick={()=>setActiveItem(3)} className={activeItem == 3?'navigation__item__active':'navigation__item'}>ToDo</div>
+            <div onClick={()=>setActivePage('profile')} className={activePage == 'profile'?'navigation__item__active':'navigation__item'}>Profile</div>
+            <div onClick={()=>setActivePage('post')} className={activePage == 'post'?'navigation__item__active':'navigation__item'}>Posts</div>
+            <div onClick={()=>setActivePage('gallery')} className={activePage == 'gallery'?'navigation__item__active':'navigation__item'}>Gallery</div>
+            <div onClick={()=>setActivePage('todo')} className={activePage == 'todo'?'navigation__item__active':'navigation__item'}>ToDo</div>
         </div>
       
     </div>

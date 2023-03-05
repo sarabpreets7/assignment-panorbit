@@ -3,6 +3,7 @@
     align-items: flex-start;
 
 
+
     .profile__details__left__container,.profile__details__right__container{
         display: flex;
         flex-direction: column;
@@ -13,7 +14,7 @@
             display: flex;
             flex-direction: column;
             width: 100%;
-            align-items: flex-start;
+            align-items: flex-end;
     
            
             table{
@@ -25,12 +26,15 @@
                 width: 100%;
                 margin-bottom: 10px;
     
+                .flex__column{
+                    flex-direction: column !important;
+                }
                 .user_stat_key{
                     color: #AEAEAE;
                     // margin-right: 6px;
                     font-size: 18px;
                     font-weight: 400;
-                    width: 50%;
+                    width: 20%;
                     display: flex;
                     justify-content: flex-end;
                 }
@@ -38,9 +42,10 @@
                     color: #545454;
                     font-size: 19px;
                     font-weight: 500;
-                    width: 50%;
+                    width: 80%;
                     display: flex;
                     justify-content: flex-start;
+                    max-width: 200px;
                 }
                 .separator{
                     margin-left: 10px;
@@ -93,8 +98,12 @@
     .profile__details__right__container{
         flex: 1 ;
 
+        .user__details__container{
+            width: 87%;
+            align-items: flex-start;
+        }
         .user_stat_key{
-            width: 110px !important;
+            width: 85px !important;
         }
         .user__address{
             color: #AEAEAE;
@@ -110,5 +119,149 @@
             border: none;
             border-radius: 25px;
         }
+        .iframe__container{
+            width: 100%;
+        }
+    }
+}
+
+.profile__modal__container{
+
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+
+
+    cursor: default;
+    box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+    width: 285px;
+    height: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 99;
+    background-color: white;
+    border-radius: 25px;
+
+    .profile__pic__container{
+        margin-top: 35px;
+        margin-bottom: 5px;
+
+        img{
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+
+        }
+      
+    }
+    .profile__username{
+        color: #545454;
+        font-size: 19px;
+        // font-weight: 500;
+    }
+    .profile__email{
+        color: #AEAEAE;
+        font-size: 18px;
+        
+    }
+    .profile__signout{
+        background-color: #D55151;
+        border-radius: 25px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        font-weight: 500;
+        width: 90px;
+        height: 35px;
+        align-items: center;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+    .profile__users__list{
+        width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+
+    .user__pic{
+        width: 27px;
+        height: 27px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    .profile__user{
+        border-top: #E1E1E1 1px solid;
+        padding: 11px 0px;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    }
+    }
+
+}
+
+
+
+.navbar__container{
+
+
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 85px;
+    position: relative;
+    border-bottom: 1px solid #E1E1E1;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 35px;
+
+    .user__profile{
+        
+        padding: 11px 0px;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    position: relative;
+    cursor: pointer;
+
+    .user__pic{
+        width: 27px;
+        height: 27px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+   
+    }
+    .selected__page{
+        color: #545454;
+        font-size: 19px;
+        font-weight: 500;
+    }
+    .profile__popup{
+        position: absolute;
+        top: 50px;
+        right: 0px;
+    }
+}
+
+.coming__soon__container{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .coming__soon__title{
+        color: #EEEEEE;
+        font-size: 76px;
+        font-weight: 800;
     }
 }

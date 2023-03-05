@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
 import "../styles/styles.scss";
 import { UserState } from "../context/provider";
+import ProfileModal from "./ProfileModal";
+import Navbar from "./Navbar";
 
-function ProfileDetail() {
-  const { user } = UserState();
-
+function ProfileDetail(props) {
+  // const { user } = UserState();
+  const user  = props.user;
+  console.log(props.user);
   useEffect(() => {
-    console.log(user);
+    
     if(user){
       const ifameData=document.getElementById("iframeId")
         const lat=user.address.geo.lat;
@@ -16,7 +19,10 @@ function ProfileDetail() {
   }, [user]);
 
   return (
+    user &&
     <div className="profile__details__container">
+      {/* <ProfileModal/> */}
+      
       <div className="profile__details__left__container">
         {/* user profile image */}
         <img src={user.profilepicture} className="user__profile__pic" />
@@ -29,10 +35,13 @@ function ProfileDetail() {
               <td className="user_stat_value">{user.username}</td>
             </tr>
 
-            <tr className="user__info__stat">
+            <tr className="user__info__stat ">
               <td className="user_stat_key">e-mail </td>
               <td className="separator">:</td>
-              <td className="user_stat_value">{user.email}</td>
+              <td className="user_stat_value flex__column">
+                <div>{user.email.substring(0,9)}</div>
+                <div>{user.email.substring(9)}</div>
+              </td>
             </tr>
 
             <tr className="user__info__stat">
@@ -97,12 +106,13 @@ function ProfileDetail() {
               <td className="separator">:</td>
               <td className="user_stat_value">{user.address.zipcode}</td>
             </tr>
-            <div>
-              <iframe className="user__address__location" id="iframeId" height="300px" width="600px"></iframe>
-            </div>
           </table>
-          
+       
+          <div className="iframe__container">
+              <iframe className="user__address__location" id="iframeId" height="300px" width="100%"></iframe>
+            </div>
         </div>
+       
       </div>
     </div>
   );

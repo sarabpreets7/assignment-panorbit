@@ -6,13 +6,15 @@ import { UserState } from '../context/provider';
 import { useNavigate } from "react-router-dom";
 
 function Landingpage() {
-    const [usersList,setUsersList] = useState([]);
+  const { userList,setUserList } = UserState();
+    // const [usersList,setUsersList] = useState([]);
     const navigate = useNavigate();
 
 
     const selectUser =(user)=>{
         console.log(user);
         localStorage.setItem("userInfo", JSON.stringify(user));
+        localStorage.setItem("usersList", JSON.stringify(userList));
         navigate("/profile");
         
     }
@@ -23,8 +25,8 @@ function Landingpage() {
       .then(
         (result) => {
           console.log(result);
-          setUsersList(result.users);
-          console.log(usersList);
+          setUserList(result.users);
+          console.log(userList);
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -49,7 +51,7 @@ function Landingpage() {
                   
                 </div> */}
 
-                {usersList && usersList.map((user)=>{
+                {userList && userList.map((user)=>{
                        return( <div onClick={()=>selectUser(user)} key={user.id} className='user_list_item'>
                         <img src={user.profilepicture} className='user_profile_icon'/>
                              <div className='user_name'>{user.name}</div>
