@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "../styles/styles.scss";
 import { UserState } from "../context/provider";
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import chatIcon from "../assets/chat-icon.png";
+import chatIcon from "../assets/images/chat-icon.png";
 
 function Chatbox({showChatBox,setChatBox}) {
   const { userList } = UserState();
