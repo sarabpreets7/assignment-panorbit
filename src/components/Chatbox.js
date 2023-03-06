@@ -27,7 +27,7 @@ function Chatbox({showChatBox,setChatBox}) {
         {userList &&
           userList.map((user) => {
             return (
-              <div className="profile__user">
+              <div key={user.id} className="profile__user">
                 <div className="profile__detail">
                   <img
                     className="user__pic"

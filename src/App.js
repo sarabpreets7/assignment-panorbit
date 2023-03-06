@@ -1,14 +1,12 @@
 import {
   Routes,Route } from "react-router-dom";
-  import {Fragment} from 'react';
-  import "./App.css";
+import "./App.css";
 import Landingpage from './pages/Landingpage';
 import Profilepage from "./pages/Profilepage";
 import Sidebar from "./components/Sidebar";
 import Postpage from "./pages/Postpage";
 import Gallerypage from "./pages/Gallerypage";
 import Todopage from "./pages/Todopage";
-import { SmoothProvider } from 'react-smooth-scrolling'
 import Chatbox from "./components/Chatbox";
 import { UserState } from "./context/provider";
 import { useDetectClickOutside } from 'react-detect-click-outside';
@@ -35,7 +33,6 @@ function App() {
         <div className="flexbox">
           <Sidebar/>
           <Routes >
-          {/* <Route path="/" element={<Profilepage/>}   /> */}
             <Route path="/profile" element={<Profilepage/>}   />
             <Route path="/post" element={<Postpage/>} exact ></Route>
             <Route path="/gallery" element={<Gallerypage/>} exact ></Route>

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import "../styles/profile.scss";
-import Sidebar from "../components/Sidebar";
 import ProfileDetail from "../components/ProfileDetail";
 import { UserState } from "../context/provider";
 import Navbar from "../components/Navbar";

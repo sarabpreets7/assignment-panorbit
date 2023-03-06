@@ -209,6 +209,7 @@ $lightfont:#AEAEAE;
     justify-content: center;
     align-items: center;
     width: 80%;
+    cursor: pointer;
     }
     }
 
@@ -372,3 +373,26 @@ $lightfont:#AEAEAE;
         }
     }
 }
+
+@media only screen and (max-width: 1130px) {
+    
+    .profile__details__container{
+        flex-direction: column;
+
+        .profile__details__left__container{
+            width: 100%;
+            border-right: none;
+            border-bottom: 1px solid $bordercolor;
+            margin-bottom: 25px;
+        }
+        .profile__details__right__container{
+            width: 100%;
+            .user__details__container{
+                align-items: center;
+            }
+        }
+        .user__details__container{
+            align-items: center !important;
+        }
+    }
+  }

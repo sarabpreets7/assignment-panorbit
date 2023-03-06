@@ -18,6 +18,7 @@ function ProfileModal({user,userList}) {
     navigate("/");
     setUser("");
   };
+
   useEffect(()=>{
 
     //setting next 2 users in userList ,to be displayed in user's list popup.
@@ -38,11 +39,11 @@ function ProfileModal({user,userList}) {
 
 {/* list displaying next 2 users in users list */}
       {otherUser1 && otherUser2 && <div className='profile__users__list'>
-        <div  className='profile__user'>
+        <div onClick={()=>{setUser(otherUser1)}}  className='profile__user'>
             <img className='user__pic' src={otherUser1.profilepicture}/>
             <div>{otherUser1.name}</div>
         </div>
-        <div  className='profile__user'>
+        <div onClick={()=>{setUser(otherUser2)}} className='profile__user'>
             <img className='user__pic' src={otherUser2.profilepicture}/>
             <div>{otherUser2.name}</div>
         </div>

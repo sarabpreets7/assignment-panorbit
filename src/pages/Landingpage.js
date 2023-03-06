@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import "../styles/landing.scss";
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { UserState } from '../context/provider';
 import { useNavigate } from "react-router-dom";
-import Chatbox from '../components/Chatbox';
+
 
 function Landingpage() {
-  const { userList,setUserList } = UserState();
-    // const [usersList,setUsersList] = useState([]);
+
+    const { userList,setUserList } = UserState();
     const navigate = useNavigate();
 
 
@@ -21,7 +21,7 @@ function Landingpage() {
     }
     useEffect(()=>{
 
-        fetch("https://panorbit.in/api/users.json")
+      fetch("https://panorbit.in/api/users.json")
       .then(res => res.json())
       .then(
         (result) => {
@@ -31,10 +31,11 @@ function Landingpage() {
         // instead of a catch() block so that we don't swallow
         // exceptions from actual bugs in components.
         (error) => {
-          
+          alert(error.message);
         }
       )
     },[])
+
   return (
     <div className='main__container'>
 
@@ -49,7 +50,7 @@ function Landingpage() {
 
                 {userList && userList.map((user)=>{
                        return( <div onClick={()=>selectUser(user)} key={user.id} className='user_list_item'>
-                        <img src={user.profilepicture} className='user_profile_icon'/>
+                        <img src={user.profilepicture} alt="user_pic" className='user_profile_icon'/>
                              <div className='user_name'>{user.name}</div>
                         </div>
                        )

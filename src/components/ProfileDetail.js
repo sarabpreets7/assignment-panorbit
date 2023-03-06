@@ -1,13 +1,9 @@
 import React, { useEffect } from "react";
 import "../styles/styles.scss";
-import { UserState } from "../context/provider";
-import ProfileModal from "./ProfileModal";
-import Navbar from "./Navbar";
+
 
 function ProfileDetail(props) {
-  // const { user } = UserState();
   const user  = props.user;
- 
   useEffect(() => {
     
     if(user){
@@ -21,10 +17,9 @@ function ProfileDetail(props) {
   return (
     user &&
     <div className="profile__details__container">
-      {/* <ProfileModal/> */}
-      
+     
       <div className="profile__details__left__container">
-        {/* user profile image */}
+        
         <img src={user.profilepicture} className="user__profile__pic" />
         <div className="user__name">{user.name}</div>
         <div className="user__details__container">

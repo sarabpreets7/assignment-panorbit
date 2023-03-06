@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../styles/styles.scss";
 import { UserState } from '../context/provider';
 import ProfileModal from './ProfileModal';
@@ -6,22 +6,21 @@ import { useDetectClickOutside } from 'react-detect-click-outside';
 
 
 function Navbar() {
-
-  
-  
     const { user,activePage,userList } = UserState();
     const [showModal,setModal] = useState(false);
 
-    const ref = useDetectClickOutside({ onTriggered: ((e)=>{
-      
+    const ref = useDetectClickOutside({ onTriggered: ((e)=>{  
       setTimeout(()=>{
         if(e.target.classList[0] != 'user__name'){
           setModal(false)
         }
-        
       },100)
      
     } )});
+
+    useEffect(()=>{
+      setModal(false)
+    },[user])
 
     
     const capitalizeFirstLetter=(string)=> {

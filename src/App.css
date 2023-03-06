@@ -3,11 +3,7 @@
   position: relative;
   max-height: 900px;
 }
-.App{
-  
 
-  
-}
 .page_not_found{
   position: fixed;
   width: 100vw;
@@ -18,4 +14,9 @@
   z-index: 9999;
   background-color: white;
 
+}
+@media only screen and (max-width: 1130px) {
+  .flexbox{
+    max-height: none;
+  }
 }
