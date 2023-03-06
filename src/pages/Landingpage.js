@@ -4,6 +4,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { UserState } from '../context/provider';
 import { useNavigate } from "react-router-dom";
+import Chatbox from '../components/Chatbox';
 
 function Landingpage() {
   const { userList,setUserList } = UserState();
@@ -12,7 +13,7 @@ function Landingpage() {
 
 
     const selectUser =(user)=>{
-        console.log(user);
+        
         localStorage.setItem("userInfo", JSON.stringify(user));
         localStorage.setItem("usersList", JSON.stringify(userList));
         navigate("/profile");
@@ -24,9 +25,7 @@ function Landingpage() {
       .then(res => res.json())
       .then(
         (result) => {
-          console.log(result);
           setUserList(result.users);
-          console.log(userList);
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -46,10 +45,7 @@ function Landingpage() {
             </div>
             <PerfectScrollbar >
             <div className='users_list'>
-                {/* <div className='user_list_item'>
-                    <div className='user_name'>Leanne Graham</div>
-                  
-                </div> */}
+               
 
                 {userList && userList.map((user)=>{
                        return( <div onClick={()=>selectUser(user)} key={user.id} className='user_list_item'>

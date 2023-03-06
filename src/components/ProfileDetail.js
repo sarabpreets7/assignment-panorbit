@@ -7,7 +7,7 @@ import Navbar from "./Navbar";
 function ProfileDetail(props) {
   // const { user } = UserState();
   const user  = props.user;
-  console.log(props.user);
+ 
   useEffect(() => {
     
     if(user){

@@ -9,7 +9,7 @@ function Profilepage() {
   const { user } = UserState();
 
   useEffect(() => {
-    console.log(user);
+   
   }, []);
 
   return (

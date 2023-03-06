@@ -1,7 +1,20 @@
+$darkcolor: #545454;
+$lightcolor: #9A9A9A;
+$bordercolor: #E1E1E1;
+$lightfont:#AEAEAE;
+
+@font-face {
+    font-family: customCoreSans;
+    src: url('../assets/fonts/CoreSansD45Medium.otf');
+    // font-weight: bold;
+  }
+  
 .profile__details__container{
     display: flex;
     align-items: flex-start;
 
+    font-family: customCoreSans;
+    letter-spacing: 0.5px;
 
 
     .profile__details__left__container,.profile__details__right__container{
@@ -30,7 +43,7 @@
                     flex-direction: column !important;
                 }
                 .user_stat_key{
-                    color: #AEAEAE;
+                    color:$lightcolor;
                     // margin-right: 6px;
                     font-size: 18px;
                     font-weight: 400;
@@ -39,9 +52,9 @@
                     justify-content: flex-end;
                 }
                 .user_stat_value{
-                    color: #545454;
-                    font-size: 19px;
-                    font-weight: 500;
+                    color: $darkcolor;
+                    font-size: 18px;
+                    font-weight: 600;
                     width: 80%;
                     display: flex;
                     justify-content: flex-start;
@@ -50,12 +63,12 @@
                 .separator{
                     margin-left: 10px;
                     margin-right: 10px;
-                    color: #AEAEAE;
+                    color: $lightfont;
                 }
             }
             .section__end{
                 width: 65%;
-                border-bottom: 1px solid #E1E1E1;
+                border-bottom: 1px solid $bordercolor;
                 
                 margin: 5px 0px;
                 margin-bottom: 10px;
@@ -71,7 +84,7 @@
 
     .profile__details__left__container{
         width: 37%;
-        border-right: 1px solid #E1E1E1;
+        border-right: 1px solid $bordercolor;
 
         .user__profile__pic{
             height: 180px;
@@ -79,7 +92,7 @@
             border-radius: 50%;
         }
         .user__company{
-            color: #AEAEAE;
+            color: $lightfont;
             font-size: 18px;
             font-weight: 400;
             display: flex;
@@ -88,10 +101,10 @@
             margin-bottom: 5px;
         }
         .user__name{
-            color: #545454;
+            color: $darkcolor;
             font-size: 19px;
-            font-weight: 500;
-            margin: 9px 0px 4px 0px;
+            font-weight: 600;
+            margin: 11px 0px 9px 0px;
         }
         
     }
@@ -106,7 +119,7 @@
             width: 85px !important;
         }
         .user__address{
-            color: #AEAEAE;
+            color: $lightfont;
             font-size: 18px;
             font-weight: 400;
             display: flex;
@@ -127,12 +140,7 @@
 
 .profile__modal__container{
 
-    // position: absolute;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
-
-
+    font-family: customCoreSans;
     cursor: default;
     box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
     width: 285px;
@@ -157,13 +165,14 @@
       
     }
     .profile__username{
-        color: #545454;
-        font-size: 19px;
-        // font-weight: 500;
+        color: $darkcolor;
+        font-size: 16px;
+        margin-bottom: 5px;
+        
     }
     .profile__email{
-        color: #AEAEAE;
-        font-size: 18px;
+        color: $lightfont;
+        font-size: 15px;
         
     }
     .profile__signout{
@@ -193,7 +202,7 @@
         margin-right: 10px;
     }
     .profile__user{
-        border-top: #E1E1E1 1px solid;
+        border-top: $bordercolor 1px solid;
         padding: 11px 0px;
     font-size: 15px;
     display: flex;
@@ -209,14 +218,14 @@
 
 .navbar__container{
 
-
+    font-family: customCoreSans;
     width: 90%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 85px;
     position: relative;
-    border-bottom: 1px solid #E1E1E1;
+    border-bottom: 1px solid $bordercolor;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 35px;
@@ -241,7 +250,7 @@
    
     }
     .selected__page{
-        color: #545454;
+        color: $darkcolor;
         font-size: 19px;
         font-weight: 500;
     }
@@ -258,10 +267,108 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    font-family: customCoreSans;
     .coming__soon__title{
         color: #EEEEEE;
-        font-size: 76px;
+        font-size: 86px;
         font-weight: 800;
+    }
+}
+
+
+
+.chat__box__container{
+
+    width: 230px;
+    position: absolute;
+    bottom: 0px;
+    right: 60px;
+    
+    font-family: customCoreSans;
+.chatbox__header{
+
+    height: 45px;
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    margin-left: auto;
+    background-color: #2C65C8;
+    margin-right: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    .chatbox__open{
+        margin-right: 14px;
+        rotate: 90%;
+        transform: rotateZ(90deg);
+        font-weight: 800;
+        cursor: pointer;
+    }
+    .chatbox__close{
+        margin-right: 14px;
+        rotate: 90%;
+        transform: rotateZ(270deg);
+        font-weight: 800;
+        cursor: pointer;
+    }
+    .chatbox__header__title{
+        display: flex;
+        align-items: center;
+        margin-left: 14px;
+        cursor: pointer;
+    }
+
+    img{
+        height: 23px;
+        width: 23px;
+        margin-right: 10px;
+
+    }
+}
+    .available__users__list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-height: 355px;
+        border: 1px solid #2C65C8;
+        border-bottom: none;
+        background-color: white;
+        // overflow-y: scroll;
+        .user__pic{
+            width: 27px;
+            height: 27px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .profile__user{
+            
+            padding: 5px 0px;
+        font-size: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+
+        .profile__detail{
+            display: flex;
+            align-items: center;
+        }
+        .user{
+            height: 7px;
+            width: 7px;
+            border-radius: 50%;
+            border: none;
+        }
+        .online{
+            background-color: #1EA858;
+        }
+        .offline{
+            background-color: #D5D5D5;
+        }
+
+        }
     }
 }

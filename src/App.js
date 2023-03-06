@@ -1,5 +1,6 @@
 import {
   Routes,Route } from "react-router-dom";
+  import {Fragment} from 'react';
   import "./App.css";
 import Landingpage from './pages/Landingpage';
 import Profilepage from "./pages/Profilepage";
@@ -8,21 +9,48 @@ import Postpage from "./pages/Postpage";
 import Gallerypage from "./pages/Gallerypage";
 import Todopage from "./pages/Todopage";
 import { SmoothProvider } from 'react-smooth-scrolling'
+import Chatbox from "./components/Chatbox";
+import { UserState } from "./context/provider";
+import { useDetectClickOutside } from 'react-detect-click-outside';
 
 function App() {
+  const {user, showChatBox,setChatBox} = UserState();
+
+  //detects if user clicks anywhere but chatbox,if so it closes the chatbox
+  const ref = useDetectClickOutside({ onTriggered: ((e)=>{
+    
+      setChatBox(false)
+   
+  } )});
+
   return (
-    <SmoothProvider>
+    
       <div className="App">
-        <Routes>
-            <Route path="/" element={<Landingpage></Landingpage>} exact />
-            <Route path="/profile" element={<div className="flexbox"><Sidebar/> <Profilepage></Profilepage></div>} exact ></Route>
-            <Route path="/post" element={<div className="flexbox"><Sidebar/> <Postpage></Postpage></div>} exact ></Route>
-            <Route path="/gallery" element={<div className="flexbox"><Sidebar/> <Gallerypage></Gallerypage></div>} exact ></Route>
-            <Route path="/todo" element={<div className="flexbox"><Sidebar/> <Todopage></Todopage></div>} exact ></Route>
+        {/* show landing page only if user isn't logged in,else show all other pages */}
+        {!user?
+         <Routes >
+           <Route path="/" element={<Landingpage></Landingpage>}  />
+         </Routes>
+        :
+        <div className="flexbox">
+          <Sidebar/>
+          <Routes >
+          {/* <Route path="/" element={<Profilepage/>}   /> */}
+            <Route path="/profile" element={<Profilepage/>}   />
+            <Route path="/post" element={<Postpage/>} exact ></Route>
+            <Route path="/gallery" element={<Gallerypage/>} exact ></Route>
+            <Route path="/todo" element={<Todopage/>} exact ></Route>
+            <Route path='*' element={<div className="page_not_found"><h2>Page not found</h2></div>}/>
           </Routes>
-      
+          <div ref={ref} >
+            <Chatbox showChatBox={showChatBox} setChatBox={setChatBox} />
+          </div>
+        </div>
+        
+        }
+
       </div>
-    </SmoothProvider>
+    
   );
 }
 

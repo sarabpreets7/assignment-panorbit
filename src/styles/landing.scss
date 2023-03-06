@@ -1,17 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
+
+@font-face {
+    font-family: customCoreSans;
+    src: url('../assets/fonts/CoreSansD45Medium.otf');
+   
+  }
 .main__container{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-background: white;
-
-min-height: 100vh;
+    background: white;
+    font-family: customCoreSans;
+    min-height: 100vh;
 
         
 .users__list__container{
-    font-family: 'Poppins', sans-serif;
+    
     min-height: 100px;
     background-color: white;
     width: 529px;
@@ -26,7 +31,7 @@ min-height: 100vh;
         align-items: center;
         flex-direction: column;
         font-size: 20px;
-        font-weight: 600;
+        // font-weight: 600;
         background-color: #F6F6F6;
         border-top-left-radius: 25px;
         border-top-right-radius: 25px;
@@ -35,20 +40,17 @@ min-height: 100vh;
     .users_list{
         background-color: white;
         height: 392px;
-        // overflow-y: scroll;
         display: flex;
         flex-direction: column;
         padding: 0px 30px;
         border-bottom-left-radius: 25px;
         border-bottom-right-radius: 25px;
-    //    margin-bottom: 10px;
         .user_list_item{
             display: flex;
             justify-content: flex-start;
             align-items: center;
             border-bottom: 1px solid #E2E2E2;
             padding: 10px 0px;
-            font-weight: 600;
            cursor: pointer;
             .user_profile_icon{
                 height: 27px;

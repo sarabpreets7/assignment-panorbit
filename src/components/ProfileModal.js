@@ -1,28 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import "../styles/styles.scss";
 import { useNavigate } from "react-router-dom";
+import { UserState } from '../context/provider';
 
 function ProfileModal({user,userList}) {
 
   const navigate = useNavigate();
-
+  const {setUser} = UserState();
   const [otherUser1,setUser1] = useState();
   const [otherUser2,setUser2] = useState();
   
 
   const logoutHandler = () => {
+    
     localStorage.removeItem("userInfo");
     localStorage.removeItem("usersList");
     navigate("/");
+    setUser("");
   };
   useEffect(()=>{
 
     //setting next 2 users in userList ,to be displayed in user's list popup.
-    console.log(user,userList);
     let listLength = userList.length;
     setUser1(userList[(user.id%listLength)]); 
     setUser2(userList[(user.id+1)%listLength]);
-    console.log(otherUser1,otherUser2);
+   
   })
   return (
     <div className='profile__modal__container'>

@@ -16,13 +16,12 @@ function Sidebar() {
       navigate(`/${page}`);
     }
     useEffect(()=>{
-
+    
     },[activePage])
 
    
   return (
     <div className='sidebar__container'>
-
 
         <div className='sidebar__navigation__menu'>
             <div onClick={()=>setActivePage('profile')} className={activePage == 'profile'?'navigation__item__active':'navigation__item'}>Profile</div>
